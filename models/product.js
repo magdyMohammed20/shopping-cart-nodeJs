@@ -26,4 +26,4 @@ const productSchema = mongoose.Schema({
 
 })
 
-export default mongoose.model('ProductSchema', productSchema)
+module.exports = mongoose.model('ProductSchema', productSchema)
