@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/shopping-cart', err => {
 // Create Products As Array For Insert It Once
 const products = [
     new Product({
-        imagePath: '/public/images/1.png',
+        imagePath: '/images/1.png',
         name: 'Samsung Ipad',
         price: 1000,
         productInfo: {
@@ -28,7 +28,7 @@ const products = [
     })
     ,
     new Product({
-        imagePath: '/public/images/2.png',
+        imagePath: '/images/2.png',
         name: 'iPhone',
         price: 500,
         productInfo: {
@@ -39,7 +39,7 @@ const products = [
         }
     }),
     new Product({
-        imagePath: '/public/images/3.png',
+        imagePath: '/images/3.png',
         name: 'Samsung Phone',
         price: 300,
         productInfo: {
@@ -50,7 +50,7 @@ const products = [
         }
     }),
     new Product({
-        imagePath: '/public/images/4.png',
+        imagePath: '/images/4.png',
         name: 'Sony Phone',
         price: 200,
         productInfo: {
@@ -61,7 +61,7 @@ const products = [
         }
     }),
     new Product({
-        imagePath: '/public/images/5.png',
+        imagePath: '/images/5.png',
         name: 'Oppo Phone',
         price: 250,
         productInfo: {
@@ -72,7 +72,7 @@ const products = [
         }
     }),
     new Product({
-        imagePath: '/public/images/6.png',
+        imagePath: '/images/6.png',
         name: 'Alcatel Phone',
         price: 200,
         productInfo: {
