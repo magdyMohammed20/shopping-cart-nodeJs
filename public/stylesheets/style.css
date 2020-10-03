@@ -16,3 +16,12 @@ a {
 .dropdown-menu{
   left: -100% !important
 }
+
+.card{
+  background-color: #644e5a !important;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+}
+
+.card-text{
+  color: #c5c5c5
+}

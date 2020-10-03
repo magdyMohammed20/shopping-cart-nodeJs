@@ -10,11 +10,11 @@ block content
       if products
         each product in products
           div.col-4.my-2
-            .card.shadow
+            .card.shadow.border-0
               .card-img-top.text-center.p-3
                 img(src=product.imagePath style='width: 250px; height: 250px')
               .card-body
-                h5.card-title #{product.name}
+                h5.card-title.text-white #{product.name}
                 .card-text
                   div 
                     | Storage Capacity 
@@ -31,7 +31,7 @@ block content
                     span.font-weight-bold #{product.productInfo.displaySize} Inch
 
                   .d-flex.justify-content-between.align-items-center
-                    div.font-weight-bold.badge.badge-info $#{product.price}
+                    div.font-weight-bold.badge.badge-danger $#{product.price}
                     button.btn.btn-success Buy
 
 
