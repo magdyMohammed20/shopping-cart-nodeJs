@@ -1,14 +1,16 @@
 extends layout
 
 block content
-  h1 All Products
+  include ./Components/navbar
+  
 
   .container
-    .row
+    h1.mt-4 All Products
+    .row.p-2
       if products
         each product in products
           div.col-4.my-2
-            .card
+            .card.shadow
               .card-img-top.text-center.p-3
                 img(src=product.imagePath style='width: 250px; height: 250px')
               .card-body
