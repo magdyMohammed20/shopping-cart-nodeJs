@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    include ../Components/navbar
+    .container.mt-5
+        form(action='/users/userSignUp' method='post').w-75.mx-auto
+            h2.mb-4 User Sign Up
+            .form-group
+                label(for='email') Email address
+                input#email.form-control(type='email' name='email')
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password' name='password')
+            .form-group
+                label(for='confirmPassword') Re-Enter Password
+                input#confirmPassword.form-control(type='password' name='confirmPassword')
+            button.btn.btn-primary(type='submit') Sign Up
