@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
-
+var expressSession = require('express-session')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -18,6 +18,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressSession({ secret: 'Shopping-Cart_?@!', saveUninitialized: false, resave: false }))
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.set('useNewUrlParser', true)
