@@ -7,7 +7,8 @@ const User = require('../models/user')
 
 /* GET users listing. */
 router.get('/userSignUp', function (req, res, next) {
-  res.render('Pages/userSignUp')
+  const messagesError = req.flash('error')
+  res.render('Pages/userSignUp', { messagesError })
 });
 
 router.post('/userSignUp', [
@@ -29,7 +30,16 @@ router.post('/userSignUp', [
   // If All Field Is Not Valid Send Errors Else Fetch email And Password And Save To MongoDB
   if (!errors.isEmpty()) {
 
-    res.status(422).jsonp(errors.array())
+    let validationMessages = []
+    let allErrors = errors.errors
+    for (let errMsgs of allErrors) {
+      //console.log(allErrors[errMsgs].msg)
+      validationMessages.push(errMsgs.msg)
+    }
+
+    // Send All Errors To User SignUp Page
+    req.flash('error', validationMessages)
+    res.redirect('userSignUp')
 
   } else {
 
@@ -46,7 +56,8 @@ router.post('/userSignUp', [
       } else {
         // If User Already Exist Send Exist Message
         if (data) {
-          res.send('User Already Exist')
+          req.flash('error', 'User Already Exist')
+          res.redirect('userSignUp')
           return
         } else {
           //Save Email And Password To MongoDB

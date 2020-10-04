@@ -3,6 +3,11 @@ extends ../layout
 block content
     include ../Components/navbar
     .container.mt-5
+        if messagesError
+            each val in messagesError
+                p.alert.alert-danger=val
+        else
+            p No Errors
         form(action='/users/userSignUp' method='post').w-75.mx-auto
             h2.mb-4 User Sign Up
             .form-group
