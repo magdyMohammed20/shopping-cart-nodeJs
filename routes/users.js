@@ -39,12 +39,25 @@ router.post('/userSignUp', [
       password: new User().hashPassword(req.body.password)
     })
 
-    // Save Email And Password To MongoDB
-    user.save((err, result) => {
+    // Check If User Already SignUp With It's Email Before Saving SignUp Data Into MongoDB
+    User.findOne({ email: req.body.email }, (err, data) => {
       if (err) {
-        console.log(err)
+        console(err)
       } else {
-        res.send(result)
+        // If User Already Exist Send Exist Message
+        if (data) {
+          res.send('User Already Exist')
+          return
+        } else {
+          //Save Email And Password To MongoDB
+          user.save((err, result) => {
+            if (err) {
+              console.log(err)
+            } else {
+              res.send(result)
+            }
+          })
+        }
       }
     })
 
