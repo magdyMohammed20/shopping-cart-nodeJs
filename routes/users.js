@@ -11,6 +11,7 @@ router.get('/userSignUp', function (req, res, next) {
   res.render('Pages/userSignUp', { messagesError })
 });
 
+/* User Sign Up Router */
 router.post('/userSignUp', [
   check('email').not().isEmpty().withMessage('Please Enter Your Email'),
   check('email').isEmail().withMessage('Please Enter Valid Email'),
@@ -76,4 +77,9 @@ router.post('/userSignUp', [
 
 });
 
+
+/* User Sign In Router */
+router.get('/userSignIn', (req, res, next) => {
+  res.render('Pages/userSignIn')
+})
 module.exports = router;

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    include ../Components/navbar
+    .container.mt-5
+        form(action='/users/userSignIn' method='post').w-75.mx-auto
+            h2.mb-4 User Sign In
+            .form-group
+                label(for='email') Email address
+                input#email.form-control(type='email' name='email')
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password' name='password')
+            button.btn.btn-primary(type='submit') Sign In
