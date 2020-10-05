@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose')
 var expressSession = require('express-session')
 var connectFlash = require('connect-flash') // For Passing Messages Between Routers
+var passport = require('passport')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -21,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({ secret: 'Shopping-Cart_?@!', saveUninitialized: false, resave: false }))
 app.use(connectFlash()) // Should Use connect-flash After expressSession()
+app.use(passport.initialize()) // Should Initialize Passport After Parser , expressSession And Connect Flash
+app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.set('useNewUrlParser', true)

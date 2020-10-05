@@ -4,6 +4,7 @@ var router = express.Router();
 const { check, validationResult } = require('express-validator')
 // Import User Model For Saving Data Into MongoDB
 const User = require('../models/user')
+const passport = require('passport')
 
 /* GET users listing. */
 router.get('/userSignUp', function (req, res, next) {
@@ -82,4 +83,13 @@ router.post('/userSignUp', [
 router.get('/userSignIn', (req, res, next) => {
   res.render('Pages/userSignIn')
 })
+
+/* User Sign In Router */
+router.post('/userSignIn', passport.authenticate('local-signin',
+  {
+    successRedirect: '',
+    failureRedirect: '/userSignIn',
+    failureFlash: true
+  }))
+
 module.exports = router;
